@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCCRUD.Models.Domain.Employee>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>Employees</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Date of Birth</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Employee in Model)
+            {
+                <tr>
+                    <td>@Employee.Name</td>
+                    <td>@Employee.Email</td>
+                    <td>@Employee.Salary</td>
+                    <td>@Employee.DateOfBirth.ToShortDateString()</td>
+                    <td>@Employee.Department</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
